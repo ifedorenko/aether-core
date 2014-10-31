@@ -761,20 +761,6 @@
                   <pluginExecutions>
                     <pluginExecution>
                       <pluginExecutionFilter>
-                        <groupId>org.eclipse.sisu</groupId>
-                        <artifactId>sisu-maven-plugin</artifactId>
-                        <versionRange>[0.0.0.M2,)</versionRange>
-                        <goals>
-                          <goal>test-index</goal>
-                          <goal>main-index</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
-                    <pluginExecution>
-                      <pluginExecutionFilter>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>build-helper-maven-plugin</artifactId>
                         <versionRange>[1.7,)</versionRange>
