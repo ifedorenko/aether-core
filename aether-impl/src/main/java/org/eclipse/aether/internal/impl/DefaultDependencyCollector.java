@@ -460,6 +460,16 @@ public class DefaultDependencyCollector
                     }
                 }
             }
+            else
+            {
+                DependencyNode node = args.nodes.top();
+                List<RemoteRepository> repos =
+                    getRemoteRepositories( rangeResult.getRepository( version ), repositories );
+                DefaultDependencyNode child =
+                    createDependencyNode( relocations, preManaged, rangeResult, version, d, descriptorResult, repos,
+                                          args.request.getRequestContext() );
+                node.getChildren().add( child );
+            }
         }
     }
 
@@ -552,7 +562,7 @@ public class DefaultDependencyCollector
         child.setRelocations( relocations );
         child.setVersionConstraint( rangeResult.getVersionConstraint() );
         child.setVersion( version );
-        child.setAliases( descriptorResult.getAliases() );
+        child.setAliases( descriptorResult != null ? descriptorResult.getAliases() : Collections.<Artifact> emptySet() );
         child.setRepositories( repos );
         child.setRequestContext( requestContext );
         return child;
